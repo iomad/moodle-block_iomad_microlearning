@@ -56,7 +56,7 @@ class microlearning_thread_users_form extends \company_moodleform {
         $this->parentlevel = \company::get_company_parentnode($company->id);
         $this->companydepartment = $this->parentlevel->id;
 
-        if (\iomad::has_capability('block/iomad_company_admin:edit_all_departments', $companycontext)) {
+        if (\iomad::has_capability('block/iomad_company_admin:edit_all_departments', $this->companycontext)) {
             $userhierarchylevel = $this->parentlevel->id;
         } else {
             $userlevel = $company->get_userlevel($USER);
