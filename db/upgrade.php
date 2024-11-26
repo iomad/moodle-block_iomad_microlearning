@@ -123,14 +123,19 @@ function xmldb_block_iomad_microlearning_upgrade($oldversion) {
         $table = new xmldb_table('microlearning_thread');
         $field = new xmldb_field('remainder1', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'halt_until_fulfilled');
 
-        // Launch rename field reminder1.
-        $dbman->rename_field($table, $field, 'reminder1');
+        // Conditionally launch rename field reminder1.
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->rename_field($table, $field, 'reminder1');
+        }
+
         // Rename field remainder2 on table microlearning_thread to reminder2.
         $table = new xmldb_table('microlearning_thread');
         $field = new xmldb_field('remainder2', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'reminder1');
 
-        // Launch rename field reminder2.
-        $dbman->rename_field($table, $field, 'reminder2');
+        // Conditionally launch rename field reminder2.
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->rename_field($table, $field, 'reminder2');
+        }
 
         // Changing type of field send_message on table microlearning_thread to int.
         $table = new xmldb_table('microlearning_thread');
