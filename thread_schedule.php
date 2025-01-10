@@ -117,6 +117,7 @@ if ($scheduledata = $editform->get_data()) {
     }
 
     // Update the schedules.
+    $scheduledata->threadinfo = $threadinfo;
     microlearning::update_thread_schedule($scheduledata);
     $redirectmessage = get_string('threadscheduleupdatedok', 'block_iomad_microlearning');
     redirect($threadlist, $redirectmessage, null, \core\output\notification::NOTIFY_SUCCESS);
