@@ -38,7 +38,7 @@
     <TABLE NAME="microlearning_nugget" COMMENT="Default comment for the table, please edit me">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="threadid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="sectionid" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="cmid" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
