@@ -103,6 +103,7 @@ if ($editform->is_cancelled()) {
         $createdata->timecreated = time();
         $createdata->message_time = $createdata->hour * 3600 + $createdata->minute * 60;
 
+echo "<pre>";print_r($createdata);die;
         $threadid = $DB->insert_record('microlearning_thread', $createdata);
         $redirectmessage = get_string('threadcreatedok', 'block_iomad_microlearning');
 

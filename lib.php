@@ -368,7 +368,7 @@ class microlearning {
         $reminder1array = array();
         $reminder2array = array();
         $found = false;
-        if (empty($threadinfor->defaultdue)) {
+        if (empty($threadinfo->defaultdue)) {
             $threadinfo->defaultdue = 0;
         }
 

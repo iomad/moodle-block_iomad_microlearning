@@ -197,5 +197,34 @@ function xmldb_block_iomad_microlearning_upgrade($oldversion) {
         upgrade_block_savepoint(true, 2024103000, 'iomad_microlearning');
     }
 
+    if ($oldversion < 2025011500) {
+
+        // Define field defaultdue to be added to microlearning_thread.
+        $table = new xmldb_table('microlearning_thread');
+        $field = new xmldb_field('defaultdue', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'releaseinterval');
+
+        // Conditionally launch add field defaultdue.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Changing precision of field name on table microlearning_thread to (1333).
+        $table = new xmldb_table('microlearning_thread');
+        $field = new xmldb_field('name', XMLDB_TYPE_CHAR, '1333', null, XMLDB_NOTNULL, null, null, 'companyid');
+
+        // Launch change of precision for field name.
+        $dbman->change_field_precision($table, $field);
+
+        // Changing precision of field name on table microlearning_nugget to (1333).
+        $table = new xmldb_table('microlearning_nugget');
+        $field = new xmldb_field('name', XMLDB_TYPE_CHAR, '1333', null, XMLDB_NOTNULL, null, null, 'id');
+
+        // Launch change of precision for field name.
+        $dbman->change_field_precision($table, $field);
+
+        // Iomad_microlearning savepoint reached.
+        upgrade_block_savepoint(true, 2025011500, 'iomad_microlearning');
+    }
+
     return $result;
 }
