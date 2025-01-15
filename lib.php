@@ -676,7 +676,7 @@ class microlearning {
             $sectioninfo = $DB->get_record('course_sections', array('id' => $nugget->sectionid));
             $linkurl = course_get_url($sectioninfo->course, $sectioninfo->section);
         } else if (!empty($nugget->cmid)) {
-            $moduleinfo - $DB->get_record('course_modules', array('id' => $nugget->cmid));
+            $moduleinfo = $DB->get_record('course_modules', array('id' => $nugget->cmid));
             $course = $DB->get_record('course', array('id' => $moduleinfo->course));
             $modinfo = get_fast_modinfo($course);
             $cm = $modinfo->cms[$nugget->cmid];
