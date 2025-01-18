@@ -104,7 +104,7 @@ class block_iomad_microlearning_nugget_table extends table_sql {
         global $CFG;
 
         if (!empty($row->timecreated)) {
-            return date($CFG->iomad_date_format, $row->timecreated);
+            return userdate($row->timecreated, $CFG->iomad_date_format);
         } else {
             return;
         }

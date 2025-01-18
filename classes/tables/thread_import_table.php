@@ -87,7 +87,7 @@ class thread_import_table extends table_sql {
         global $CFG;
 
         if (!empty($row->timecreated)) {
-            return date($CFG->iomad_date_format, $row->timecreated);
+            return userdate($row->timecreated, $CFG->iomad_date_format);
         } else {
             return;
         }
@@ -97,7 +97,7 @@ class thread_import_table extends table_sql {
         global $CFG;
 
         if (!empty($row->startdate)) {
-            return date($CFG->iomad_date_format, $row->startdate);
+            return userdate($row->startdate, $CFG->iomad_date_format);
         } else {
             return;
         }
