@@ -138,7 +138,7 @@ class microlearning_thread_users_form extends \company_moodleform {
         // changed in the process function, the changes get displayed, rather than the
         // lists as they are before processing.
 
-        if (!$this->thread->id ) {
+        if (!isset($this->thread->id)) {
             die('No thread selected.');
         }
 
