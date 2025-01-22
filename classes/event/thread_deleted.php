@@ -69,7 +69,7 @@ class thread_deleted extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '$this->userid' deleted the microlearning thread with id '$this->ojectid'";
+        return "The user with id '$this->userid' deleted the microlearning thread with id '$this->objectid'";
     }
 
     /**

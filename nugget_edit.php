@@ -105,9 +105,7 @@ if ($editform->is_cancelled()) {
         $event->trigger();
     } else {
         // We are editing a current nugget.
-        $createdata->message_time = $createdata->message_time['hour'] * 3600 + $createdata->message_time['minute'] * 60;
-
-        $nuggetid = $DB->update_record('microlearning_nugget', $createdata);
+        $DB->update_record('microlearning_nugget', $createdata);
         $redirectmessage = get_string('nuggetcupdatedok', 'block_iomad_microlearning');
 
         // Fire an Event for this.
@@ -115,7 +113,7 @@ if ($editform->is_cancelled()) {
 
         $event = \block_iomad_microlearning\event\nugget_updated::create(array('context' => $companycontext,
                                                                                'userid' => $USER->id,
-                                                                               'objectid' => $nuggetid,
+                                                                               'objectid' => $createdata->id,
                                                                                'other' => $eventother));
         $event->trigger();
     }

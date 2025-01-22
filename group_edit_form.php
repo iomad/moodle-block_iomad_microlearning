@@ -103,7 +103,17 @@ if ($editform->is_cancelled()) {
 } else {
     echo $output->header();
 
-    $editform->display();
+    if (!$DB->get_records('microlearning_thread', ['companyid' => $companyid])) {
+        // We don't have anything to assign.
+        echo $output->notification(get_string('nolearningthreads', 'block_iomad_microlearning'), 'info', false);
+
+        // Add the button to manage nuggets
+        echo $output->single_button(new moodle_url($CFG->wwwroot . '/blocks/iomad_microlearning/thread_edit.php'),
+                                    get_string('add'));
+    } else {
+        // Display the form.
+        $editform->display();
+    }
 
     echo $output->footer();
 }

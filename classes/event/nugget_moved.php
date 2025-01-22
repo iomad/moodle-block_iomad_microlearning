@@ -69,7 +69,7 @@ class nugget_moved extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '$this->userid' moved the microlearning nugget order with id '$this->ojectid'";
+        return "The user with id '$this->userid' moved the microlearning nugget order with id '$this->objectid'";
     }
 
     /**

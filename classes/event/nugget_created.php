@@ -69,7 +69,7 @@ class nugget_created extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '$this->userid' created the microlearning nugget with id '$this->ojectid'";
+        return "The user with id '$this->userid' created the microlearning nugget with id '$this->objectid'";
     }
 
     /**

@@ -69,7 +69,7 @@ class user_unassigned extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '$this->userid' unassigned the user with id '$this->relateduserid' from the microlearning thread with id '$this->ojectid'";
+        return "The user with id '$this->userid' unassigned the user with id '$this->relateduserid' from the microlearning thread with id '$this->objectid'";
     }
 
     /**
